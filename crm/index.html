@@ -649,7 +649,7 @@
     const del = el('button', 'btn small danger', 'Supprimer');
     const confirmBox = () => {
       const c = el('div', 'confirm'); const yes = el('button', 'btn small danger', 'Oui, supprimer'); const no = el('button', 'btn small', 'Annuler');
-      yes.addEventListener('click', () => { confirmingId = null; removeLead(d.id); });
+      yes.addEventListener('click', async () => { if (yes.disabled) return; yes.disabled = true; yes.textContent = 'Suppression…'; confirmingId = null; await removeLead(d.id); });
       no.addEventListener('click', () => { confirmingId = null; c.replaceWith(del); });
       c.append(document.createTextNode('Supprimer ce commerce ?'), yes, no); return c;
     };
@@ -673,7 +673,13 @@
     body.append(mk('address', 'Adresse'), mk('siteUrl', 'Site actuel, s’il existe', { placeholder: 'exemple.com' }), mk('note', 'Argument ou remarque', { tag: 'textarea' }));
     const foot = el('div', 'd-foot');
     const save = el('button', 'btn primary', 'Ajouter au pipeline');
-    save.addEventListener('click', () => { if (!f.name.value.trim()) { f.name.focus(); toast('Le nom est obligatoire'); return; } createLead(Object.fromEntries(Object.entries(f).map(([k, i]) => [k, i.value]))); });
+    save.addEventListener('click', async () => {
+      if (!f.name.value.trim()) { f.name.focus(); toast('Le nom est obligatoire'); return; }
+      if (save.disabled) return;
+      save.disabled = true; save.textContent = 'Ajout en cours…';
+      try { await createLead(Object.fromEntries(Object.entries(f).map(([k, i]) => [k, i.value]))); }
+      finally { save.disabled = false; save.textContent = 'Ajouter au pipeline'; }
+    });
     const cancel = el('button', 'btn', 'Annuler'); cancel.addEventListener('click', closeDrawer);
     foot.append(save, cancel);
     dr.append(head, body, foot);
