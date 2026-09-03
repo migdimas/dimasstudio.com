@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}}</title>
+  <meta name="description" content="{{meta_desc}}">
+  <!-- Remplacer les URL relatives ci-dessous par des URL absolues (https://votre-domaine/...) au moment du déploiement : Facebook et Messenger exigent une adresse complète. -->
+  <link rel="canonical" href="{{canonical}}">
+  {{hreflang}}
+  <meta property="og:title" content="{{og_title}}">
+  <meta property="og:description" content="{{og_desc}}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://dimasstudio.com/assets/og.png">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:locale" content="{{locale}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Dimas Studio","description":"{{ld_desc}}","areaServed":"{{ld_area}}","telephone":"+1-514-945-2830","email":"info@dimasstudio.com","url":"https://dimasstudio.com/","priceRange":"$$"}
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f5f5f7;
+      --ink: #1d1d1f;
+      --ink-2: #6e6e73;
+      --ink-3: #86868b;
+      --line: #d2d2d7;
+      --accent: #005afc;
+      --accent-hover: #0f66ff;
+      --dark: #000000;
+      --radius: 18px;
+      --ease: cubic-bezier(.28,.11,.32,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--ink); background: var(--bg);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      line-height: 1.47; letter-spacing: -.011em;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+    .wrap-narrow { width: min(720px, calc(100% - 48px)); margin-inline: auto; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    h1, h2, h3 { font-weight: 600; letter-spacing: -.02em; line-height: 1.08; }
+    .display { font-size: clamp(44px, 7vw, 80px); font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
+    .headline { font-size: clamp(34px, 5vw, 56px); }
+    .sub { font-size: clamp(19px, 2.2vw, 26px); color: var(--ink-2); font-weight: 400; letter-spacing: -.012em; line-height: 1.35; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 14px; }
+    .muted { color: var(--ink-2); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; border-radius: 980px;
+      font-size: 17px; font-weight: 500; letter-spacing: -.01em;
+      transition: transform .25s var(--ease), background .25s var(--ease);
+      cursor: pointer; border: 0; white-space: nowrap; font-family: inherit;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--accent); padding-inline: 4px; }
+    .btn-ghost:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .btn-ghost::after { content: "›"; font-size: 22px; line-height: 1; margin-top: -3px; }
+    .btn-dark { background: var(--ink); color: #fff; }
+    .btn-dark:hover { background: #333336; }
+    .btn-light { background: #fff; color: var(--ink); }
+    .btn-light:hover { background: #f0f0f2; }
+    .btn[disabled] { opacity: .6; cursor: progress; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.72);
+      -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav-inner { height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo img { height: 26px; width: auto; }
+    .nav-links { display: flex; gap: 32px; font-size: 13px; color: var(--ink); }
+    .nav-links a { opacity: .85; transition: opacity .2s; }
+    .nav-links a:hover { opacity: 1; color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta { font-size: 13px; padding: 7px 16px; }
+    .nav-tel { font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+    .nav-tel:hover { color: var(--accent); }
+    .mbar { display: none; }
+    @media (max-width: 760px) {
+      .nav-tel { display: none; }
+      .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-top: 1px solid rgba(0,0,0,.08); }
+      .mbar a { display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 980px; font-size: 15px; font-weight: 600; border: 1px solid var(--line); color: var(--ink); background: #fff; }
+      .mbar a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+      body { padding-bottom: 72px; }
+    }
+    .lang { display: flex; gap: 4px; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+    .lang a { padding: 5px 7px; border-radius: 6px; color: var(--ink-3); }
+    .lang a:hover { color: var(--ink); }
+    .lang a.on { color: var(--ink); background: var(--bg-alt); }
+    .mobile-menu .lang-mobile { padding: 18px 0 8px; gap: 10px; font-size: 15px; }
+    .mobile-menu .lang-mobile a { display: inline-block; padding: 8px 16px; border-radius: 980px; border: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 15px; }
+    .burger { display: none; width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; border-radius: 10px; }
+    .burger span { display: block; width: 20px; height: 2px; background: var(--ink); margin: 5px auto; transition: transform .3s var(--ease), opacity .3s; }
+    .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; border-top: 1px solid rgba(0,0,0,.06); background: rgba(255,255,255,.96); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 16px 0; font-size: 19px; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,.06); }
+    .mobile-menu a:last-child { border-bottom: 0; }
+    @media (max-width: 760px) { .nav-links { display: none; } .burger { display: block; } .nav-cta { display: none; } .nav-right > .lang { display: none; } }
+
+    /* Hero */
+    .hero { padding: 110px 0 60px; text-align: center; }
+    .hero .display { max-width: 900px; margin-inline: auto; }
+    .hero .sub { max-width: 660px; margin: 22px auto 0; }
+    .hero-actions { display: flex; gap: 18px; justify-content: center; align-items: center; margin-top: 34px; flex-wrap: wrap; }
+    .hero-price { margin-top: 18px; font-size: 15px; color: var(--ink-3); }
+    .hero-price strong { color: var(--ink); font-weight: 600; }
+
+    /* Showcase (exemples) */
+    .showcase { margin: 72px auto 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    @media (max-width: 860px) { .showcase { grid-template-columns: 1fr; } }
+    .shot {
+      display: block; border-radius: 16px; overflow: hidden; background: #fff;
+      box-shadow: 0 20px 50px -25px rgba(0,0,0,.35); border: 1px solid rgba(0,0,0,.06);
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease); text-align: left;
+    }
+    .shot:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -25px rgba(0,0,0,.4); }
+    .shot .bar { display: flex; gap: 5px; padding: 9px 12px; background: #f1f1f4; border-bottom: 1px solid rgba(0,0,0,.05); }
+    .shot .bar i { width: 8px; height: 8px; border-radius: 50%; background: #d3d3d8; display: block; }
+    .shot img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; height: auto; }
+    .showcase { scroll-margin-top: 72px; }
+    .shot .cap { padding: 14px 16px 16px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .shot .cap b { font-weight: 600; display: block; }
+    .shot .cap span { color: var(--ink-3); font-size: 12px; }
+    .shot .cap em { color: var(--accent); font-style: normal; white-space: nowrap; }
+    .showcase-note { text-align: center; margin-top: 18px; font-size: 13px; color: var(--ink-3); }
+
+    section { padding: 110px 0; scroll-margin-top: 56px; }
+    .section-alt { background: var(--bg-alt); }
+    .section-dark { background: var(--dark); color: #fff; }
+    .section-dark .sub, .section-dark .muted { color: #a1a1a6; }
+    .center { text-align: center; }
+    .section-head { max-width: 760px; margin-inline: auto; }
+    .section-head .sub { margin-top: 18px; }
+
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 64px; }
+    @media (max-width: 960px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
+    .card { background: #fff; border-radius: var(--radius); padding: 32px 28px; box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px -20px rgba(0,0,0,.18); }
+    .card h3 { font-size: 21px; margin: 18px 0 10px; }
+    .card p { color: var(--ink-2); font-size: 16px; }
+    .icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--bg-alt); color: var(--ink); }
+    .icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 64px; counter-reset: step; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+    .step { position: relative; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); }
+    .step::before { counter-increment: step; content: "0" counter(step); font-size: 13px; font-weight: 600; letter-spacing: .1em; color: #6e6e73; display: block; margin-bottom: 14px; }
+    .step h3 { font-size: 21px; margin-bottom: 8px; }
+    .step p { color: #a1a1a6; font-size: 15px; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center; margin-top: 56px; }
+    @media (max-width: 700px) { .about { grid-template-columns: 1fr; gap: 28px; } }
+    .avatar { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(160deg, #eef2ff 0%, #dfe6ff 100%); display: grid; place-items: center; font-size: 56px; font-weight: 700; color: var(--accent); letter-spacing: -.04em; overflow: hidden; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .about h3 { font-size: 28px; margin-bottom: 12px; }
+    .about p { font-size: 18px; color: var(--ink-2); margin-bottom: 12px; }
+    .about p:last-child { margin-bottom: 0; }
+
+    /* Pricing */
+    .launch { margin: 56px auto 0; max-width: 760px; background: var(--ink); color: #fff; border-radius: 16px; padding: 18px 24px; display: flex; gap: 16px; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; font-size: 16px; }
+    .launch b { font-weight: 600; }
+    .launch span { background: var(--accent); padding: 4px 10px; border-radius: 980px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+    .pricing { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; margin-top: 24px; align-items: stretch; }
+    @media (max-width: 860px) { .pricing { grid-template-columns: 1fr; } }
+    .plan { background: #fff; border-radius: 24px; padding: 44px 40px; border: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
+    @media (max-width: 560px) { .plan { padding: 32px 24px; } }
+    .plan.featured { border-color: transparent; box-shadow: 0 30px 70px -30px rgba(0,0,0,.25); }
+    .plan .tag { position: absolute; top: 20px; right: 20px; font-size: 12px; font-weight: 600; letter-spacing: .04em; background: var(--accent); color: #fff; padding: 5px 11px; border-radius: 980px; }
+    .plan .name { font-size: 15px; font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .1em; }
+    .plan .desc { margin-top: 10px; color: var(--ink-2); font-size: 16px; }
+    .lines { margin-top: 26px; display: grid; gap: 14px; }
+    .line { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+    .line .l { font-size: 17px; }
+    .line .l small { display: block; color: var(--ink-3); font-size: 13px; margin-top: 2px; }
+    .line .amt { font-size: 34px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
+    .line .amt small { font-size: 15px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
+    .total { display: flex; justify-content: space-between; margin-top: 14px; font-size: 14px; color: var(--ink-3); }
+    .total b { color: var(--ink); font-weight: 600; }
+    .plan ul { list-style: none; margin: 28px 0 32px; display: grid; gap: 12px; }
+    .plan li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; }
+    .plan li svg { width: 18px; height: 18px; flex: none; margin-top: 3px; stroke: var(--accent); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .plan .btn { margin-top: auto; }
+    .pricing-note { text-align: center; margin-top: 28px; font-size: 14px; color: var(--ink-3); max-width: 640px; margin-inline: auto; }
+
+    /* FAQ */
+    .faq { margin-top: 56px; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; list-style: none; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; font-size: 19px; font-weight: 500; letter-spacing: -.015em; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 26px; font-weight: 300; color: var(--ink-3); transition: transform .3s var(--ease); flex: none; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { padding: 0 0 26px; color: var(--ink-2); font-size: 17px; max-width: 640px; }
+
+    /* Contact */
+    .contact-box { margin-top: 56px; background: #fff; border-radius: 24px; padding: 48px; box-shadow: 0 1px 2px rgba(0,0,0,.04); display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+    @media (max-width: 860px) { .contact-box { grid-template-columns: 1fr; padding: 32px 24px; gap: 32px; } }
+    .contact-box h3 { font-size: 28px; margin-bottom: 12px; }
+    .contact-box .lead { color: var(--ink-2); font-size: 17px; }
+    .contact-meta { margin-top: 32px; display: grid; gap: 14px; font-size: 16px; }
+    .contact-meta a { color: var(--accent); }
+    form { display: grid; gap: 14px; }
+    .field { display: grid; gap: 6px; }
+    label { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+    input, textarea { font: inherit; font-size: 16px; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); transition: border-color .2s, box-shadow .2s; width: 100%; }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,90,252,.15); }
+    input.err, textarea.err, .consent.err { border-color: #e0342c; }
+    textarea { min-height: 110px; resize: vertical; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--ink-2); border: 1px solid transparent; border-radius: 8px; padding: 4px; }
+    .consent input { width: 18px; height: 18px; margin-top: 2px; padding: 0; flex: none; }
+    .consent a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .form-msg { display: none; padding: 16px; border-radius: 12px; font-size: 15px; }
+    .form-msg.ok { background: #eaf6ee; color: #1a7f37; }
+    .form-msg.ko { background: #fdecea; color: #b3261e; }
+    .form-msg.show { display: block; }
+
+    .cta-band { padding: 120px 0; text-align: center; }
+    .cta-band .headline { max-width: 800px; margin-inline: auto; }
+    .cta-band .sub { margin: 18px auto 0; max-width: 560px; }
+
+    footer { padding: 48px 0; border-top: 1px solid var(--line); background: var(--bg-alt); font-size: 13px; color: var(--ink-3); }
+    .foot-top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+    .foot-top img { height: 28px; width: auto; }
+    .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .foot-links a:hover { color: var(--ink); }
+    .legal { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 20px; }
+    .legal details { margin-bottom: 8px; }
+    .legal summary { cursor: pointer; font-weight: 500; color: var(--ink-2); padding: 6px 0; }
+    .legal p { max-width: 720px; margin: 8px 0; line-height: 1.55; }
+    .legal p b { color: var(--ink-2); }
+    .foot-bottom { margin-top: 20px; font-size: 12px; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo" aria-label="{{logo_aria}}">
+        <img src="assets/logo-wordmark-sm.png" alt="Dimas Studio" width="600" height="100">
+      </a>
+      <nav class="nav-links" aria-label="{{nav_aria}}">
+        <a href="#exemples">{{nav_examples}}</a>
+        <a href="#services">{{nav_services}}</a>
+        <a href="#processus">{{nav_process}}</a>
+        <a href="#tarifs">{{nav_pricing}}</a>
+        <a href="#faq">{{nav_faq}}</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:+15149452830" class="nav-tel" data-track="tel_nav">514 945-2830</a>
+        <nav class="lang" aria-label="{{lang_aria}}">{{lang_switch}}</nav>
+        <a href="#contact" class="btn btn-primary nav-cta" data-track="cta_nav">{{nav_cta}}</a>
+        <button class="burger" id="burger" aria-label="{{burger_open}}" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="wrap">
+        <a href="#exemples">{{nav_examples}}</a>
+        <a href="#services">{{nav_services}}</a>
+        <a href="#processus">{{nav_process}}</a>
+        <a href="#tarifs">{{nav_pricing}}</a>
+        <a href="#faq">{{nav_faq}}</a>
+        <a href="#contact" style="color:var(--accent)">{{nav_cta_mobile}}</a>
+        <a href="tel:+15149452830" data-track="tel_menu">514 945-2830</a>
+        <a href="mailto:info@dimasstudio.com" data-track="mail_menu">info@dimasstudio.com</a>
+        <div class="lang lang-mobile">{{lang_switch}}</div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">{{hero_eyebrow}}</p>
+        <h1 class="display">{{hero_h1}}</h1>
+        <p class="sub">{{hero_sub}}</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary" data-track="cta_hero">{{hero_cta}}</a>
+          <a href="#tarifs" class="btn btn-ghost" data-track="cta_hero_tarifs">{{hero_cta2}}</a>
+        </div>
+        <p class="hero-price">{{hero_price}}</p>
+
+        <div class="showcase reveal" id="exemples">
+          <a class="shot" href="https://www.indiarosa.com/" target="_blank" rel="noopener" data-track="exemple_restaurant">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/ex-indiarosa.gif" loading="lazy" alt="{{ex_restaurant_alt}}" width="640" height="400">
+            <div class="cap"><div><b>{{ex_restaurant}}</b><span>{{ex_restaurant_sub}}</span></div><em>{{ex_see}}</em></div>
+          </a>
+          <a class="shot" href="https://www.klimbo.co/" target="_blank" rel="noopener" data-track="exemple_entrepreneur">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/ex-klimbo.gif" loading="lazy" alt="{{ex_contractor_alt}}" width="640" height="400">
+            <div class="cap"><div><b>{{ex_contractor}}</b><span>{{ex_contractor_sub}}</span></div><em>{{ex_see}}</em></div>
+          </a>
+          <a class="shot" href="https://www.stationlmtl.com/" target="_blank" rel="noopener" data-track="exemple_clinique">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/ex-stationl.gif" loading="lazy" alt="{{ex_clinic_alt}}" width="640" height="400">
+            <div class="cap"><div><b>{{ex_clinic}}</b><span>{{ex_clinic_sub}}</span></div><em>{{ex_see}}</em></div>
+          </a>
+        </div>
+        <p class="showcase-note">{{ex_note}}</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section-alt">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">{{sv_eyebrow}}</p>
+          <h2 class="headline">{{sv_h2}}</h2>
+          <p class="sub">{{sv_sub}}</p>
+        </div>
+        <div class="grid-4">
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+            <h3>{{sv1_h}}</h3>
+            <p>{{sv1_p}}</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+            <h3>{{sv2_h}}</h3>
+            <p>{{sv2_p}}</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+            <h3>{{sv3_h}}</h3>
+            <p>{{sv3_p}}</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+            <h3>{{sv4_h}}</h3>
+            <p>{{sv4_p}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESSUS -->
+    <section id="processus" class="section-dark">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">{{pr_eyebrow}}</p>
+          <h2 class="headline">{{pr_h2}}</h2>
+          <p class="sub">{{pr_sub}}</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <h3>{{pr1_h}}</h3>
+            <p>{{pr1_p}}</p>
+          </div>
+          <div class="step reveal">
+            <h3>{{pr2_h}}</h3>
+            <p>{{pr2_p}}</p>
+          </div>
+          <div class="step reveal">
+            <h3>{{pr3_h}}</h3>
+            <p>{{pr3_p}}</p>
+          </div>
+          <div class="step reveal">
+            <h3>{{pr4_h}}</h3>
+            <p>{{pr4_p}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos">
+      <div class="wrap-narrow">
+        <div class="section-head center reveal">
+          <p class="eyebrow">{{ab_eyebrow}}</p>
+          <h2 class="headline">{{ab_h2}}</h2>
+        </div>
+        <div class="about reveal">
+          <!-- Pour afficher une photo d'équipe : remplacer le contenu de .avatar par <img src="assets/equipe.jpg" alt="L'équipe Dimas Studio"> -->
+          <div class="avatar" aria-hidden="true"><img src="assets/logo-mark.png" alt="" style="object-fit:contain;padding:22%"></div>
+          <div>
+            <h3>{{ab_h3}}</h3>
+            <p>{{ab_p1}}</p>
+            <p>{{ab_p2}}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs" class="section-alt">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">{{tf_eyebrow}}</p>
+          <h2 class="headline">{{tf_h2}}</h2>
+          <p class="sub">{{tf_sub}}</p>
+        </div>
+
+        <div class="pricing" style="margin-top:56px">
+          <div class="plan featured reveal">
+            <span class="tag">{{plan_tag}}</span>
+            <p class="name">{{plan1_name}}</p>
+            <p class="desc">{{plan1_desc}}</p>
+            <div class="lines">
+              <div class="line"><div class="l">{{line_create}}<small>{{line_create_sub1}}</small></div><div class="amt">{{p1_price}}</div></div>
+              <div class="line"><div class="l">{{line_host}}<small>{{line_host_sub}}</small></div><div class="amt">{{p1_month}}<small>{{per_month}}</small></div></div>
+            </div>
+            <div class="total"><span>{{first_year}}</span><b>{{p1_total}}</b></div>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f1}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f2}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f3}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f4}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f5}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f6}}</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" data-track="cta_plan_essentiel">{{p1_cta}}</a>
+          </div>
+
+          <div class="plan reveal">
+            <p class="name">{{plan2_name}}</p>
+            <p class="desc">{{plan2_desc}}</p>
+            <div class="lines">
+              <div class="line"><div class="l">{{line_create}}<small>{{line_create_sub2}}</small></div><div class="amt">{{p2_price}}</div></div>
+              <div class="line"><div class="l">{{line_host}}<small>{{line_host_sub}}</small></div><div class="amt">{{p2_month}}<small>{{per_month}}</small></div></div>
+            </div>
+            <div class="total"><span>{{first_year}}</span><b>{{p2_total}}</b></div>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f1}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f2}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f3}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f4}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f5}}</li>
+            </ul>
+            <a href="#contact" class="btn btn-dark" data-track="cta_plan_pro">{{p2_cta}}</a>
+          </div>
+        </div>
+        <p class="pricing-note">{{tf_note}}</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap-narrow">
+        <div class="section-head center reveal">
+          <p class="eyebrow">{{faq_eyebrow}}</p>
+          <h2 class="headline">{{faq_h2}}</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>{{q1}}</summary>
+            <p>{{a1}}</p>
+          </details>
+          <details>
+            <summary>{{q2}}</summary>
+            <p>{{a2}}</p>
+          </details>
+          <details>
+            <summary>{{q3}}</summary>
+            <p>{{a3}}</p>
+          </details>
+          <details>
+            <summary>{{q4}}</summary>
+            <p>{{a4}}</p>
+          </details>
+          <details>
+            <summary>{{q5}}</summary>
+            <p>{{a5}}</p>
+          </details>
+          <details>
+            <summary>{{q6}}</summary>
+            <p>{{a6}}</p>
+          </details>
+          <details>
+            <summary>{{q7}}</summary>
+            <p>{{a7}}</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-alt">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">{{ct_eyebrow}}</p>
+          <h2 class="headline">{{ct_h2}}</h2>
+          <p class="sub">{{ct_sub}}</p>
+        </div>
+        <div class="contact-box reveal">
+          <div>
+            <h3>{{ct_h3}}</h3>
+            <p class="lead">{{ct_lead}}</p>
+            <div class="contact-meta">
+              <div><span class="muted">{{ct_phone}}</span><br><a href="tel:+15149452830" data-track="tel_contact">+1 (514) 945-2830</a> &nbsp;·&nbsp; <a href="sms:+15149452830" data-track="sms_contact">{{ct_sms}}</a></div>
+              <div><span class="muted">{{ct_email}}</span><br><a href="mailto:info@dimasstudio.com" data-track="mail_contact">info@dimasstudio.com</a></div>
+              <div><span class="muted">{{ct_based}}</span><br>{{ct_city}}</div>
+              <div><span class="muted">{{ct_delay}}</span><br>{{ct_delay_v}}</div>
+            </div>
+          </div>
+          <form id="contact-form" novalidate action="https://formsubmit.co/info@dimasstudio.com" method="POST">
+            <input type="hidden" name="_subject" value="{{f_subject}}">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="{{canonical}}#contact">
+            <div class="field">
+              <label for="name">{{f_name}}</label>
+              <input id="name" name="name" type="text" autocomplete="name" required placeholder="{{f_name_ph}}">
+            </div>
+            <div class="field">
+              <label for="email">{{f_email}}</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="{{f_email_ph}}">
+            </div>
+            <div class="field">
+              <label for="company">{{f_company}}</label>
+              <input id="company" name="company" type="text" autocomplete="organization" required placeholder="{{f_company_ph}}">
+            </div>
+            <div class="field">
+              <label for="message">{{f_message}}</label>
+              <textarea id="message" name="message" required placeholder="{{f_message_ph}}"></textarea>
+            </div>
+            <label class="consent" id="consent-wrap">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>{{f_consent}}</span>
+            </label>
+            <button type="submit" class="btn btn-primary" id="submit-btn" data-track="form_submit">{{f_submit}}</button>
+            <p class="form-msg ok" id="form-ok">{{f_ok}}</p>
+            <p class="form-msg ko" id="form-ko">{{f_ko}}</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band section-dark">
+      <div class="wrap reveal">
+        <h2 class="headline">{{band_h2}}</h2>
+        <p class="sub">{{band_sub}}</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-light" data-track="cta_band">{{band_cta}}</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="mbar" aria-label="{{mbar_aria}}">
+    <a href="tel:+15149452830" data-track="tel_bar">{{mbar_call}}</a>
+    <a href="sms:+15149452830" data-track="sms_bar">{{mbar_text}}</a>
+    <a href="#contact" class="on" data-track="cta_bar">{{mbar_cta}}</a>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <img src="assets/logo-wordmark-sm.png" alt="Dimas Studio" width="600" height="100">
+        <div class="foot-links">
+          <a href="#exemples">{{ft_examples}}</a>
+          <a href="#tarifs">{{ft_pricing}}</a>
+          <a href="#faq">{{ft_faq}}</a>
+          <a href="#contact">{{ft_contact}}</a>
+          <a href="#confidentialite">{{ft_privacy}}</a>
+          <a href="#conditions">{{ft_terms}}</a>
+        </div>
+      </div>
+      <div class="legal">
+        <details id="confidentialite">
+          <summary>{{pv_title}}</summary>
+          <p>{{pv1}}</p>
+          <p>{{pv2}}</p>
+          <p>{{pv3}}</p>
+          <p>{{pv4}}</p>
+        </details>
+        <details id="conditions">
+          <summary>{{tm_title}}</summary>
+          <p>{{tm1}}</p>
+          <p>{{tm2}}</p>
+          <p>{{tm3}}</p>
+          <p>{{tm4}}</p>
+        </details>
+      </div>
+      <div class="foot-bottom">© <span id="year"></span> {{ft_copy}} &nbsp;·&nbsp; <a href="tel:+15149452830">+1 (514) 945-2830</a> &nbsp;·&nbsp; <a href="mailto:info@dimasstudio.com">info@dimasstudio.com</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Adresse qui reçoit les demandes du formulaire (acheminement par FormSubmit, sans serveur).
+    // À la première demande, FormSubmit envoie un courriel d'activation à cette adresse : cliquer le lien une seule fois.
+    var FORM_TO = 'info@dimasstudio.com';
+    var FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + FORM_TO;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mesure : coller ici le script GA4 ou Plausible. track() relaie l'événement s'il existe, sinon ne fait rien.
+    function track(name) {
+      try {
+        if (window.plausible) window.plausible(name);
+        if (window.gtag) window.gtag('event', name);
+      } catch (e) {}
+    }
+    document.querySelectorAll('[data-track]').forEach(function (el) {
+      el.addEventListener('click', function () { track(el.getAttribute('data-track')); });
+    });
+
+    // Menu mobile
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? '{{burger_close}}' : '{{burger_open}}');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
+    });
+
+    // Un lien vers #confidentialite ou #conditions déplie le bloc visé
+    function openHashDetails() {
+      var t = location.hash && document.querySelector(location.hash);
+      if (t && t.tagName === 'DETAILS') t.open = true;
+    }
+    window.addEventListener('hashchange', openHashDetails);
+    openHashDetails();
+
+    // Apparition au défilement
+    var els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    } else {
+      els.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    // Formulaire : envoi réel, confirmation seulement après réponse du serveur
+    var form = document.getElementById('contact-form');
+    var okMsg = document.getElementById('form-ok');
+    var koMsg = document.getElementById('form-ko');
+    var btn = document.getElementById('submit-btn');
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      okMsg.classList.remove('show'); koMsg.classList.remove('show');
+      var valid = true;
+      [form.name, form.email, form.company, form.message].forEach(function (f) {
+        var ok = f.value.trim() !== '' && (f.type !== 'email' || /.+@.+\..+/.test(f.value));
+        f.classList.toggle('err', !ok);
+        if (!ok) valid = false;
+      });
+      var consentWrap = document.getElementById('consent-wrap');
+      consentWrap.classList.toggle('err', !form.consent.checked);
+      if (!form.consent.checked) valid = false;
+      if (!valid) return;
+
+      btn.disabled = true; btn.textContent = '{{f_sending}}';
+      var payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        company: form.company.value.trim(),
+        message: form.message.value.trim(),
+        _subject: '{{f_subject}} · ' + form.company.value.trim(),
+        lang: '{{form_lang}}',
+        _replyto: form.email.value.trim(),
+        _template: 'table',
+        _captcha: 'false',
+        _cc: 'miguel.dimas@klimbo.co',
+        _autoresponse: '{{f_autoresponse}}'
+      };
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }).then(function (data) {
+        if (data && (data.success === 'true' || data.success === true)) {
+          form.reset();
+          okMsg.classList.add('show');
+          track('form_success');
+        } else {
+          throw new Error('refus');
+        }
+      }).catch(function () {
+        koMsg.classList.add('show');
+        track('form_error');
+      }).finally(function () {
+        btn.disabled = false; btn.textContent = '{{f_submit}}';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dimas Studio · Diseño de sitios web en Montreal</title>
+  <meta name="description" content="Dimas Studio diseña el sitio web de tu empresa. Ves tu maqueta gratis antes de pagar. Creación $250, alojamiento y actualizaciones $69 al mes.">
+  <!-- Remplacer les URL relatives ci-dessous par des URL absolues (https://votre-domaine/...) au moment du déploiement : Facebook et Messenger exigent une adresse complète. -->
+  <link rel="canonical" href="https://dimasstudio.com/es.html">
+  <link rel="alternate" hreflang="fr" href="https://dimasstudio.com/">
+  <link rel="alternate" hreflang="en" href="https://dimasstudio.com/en.html">
+  <link rel="alternate" hreflang="es" href="https://dimasstudio.com/es.html">
+  <link rel="alternate" hreflang="x-default" href="https://dimasstudio.com/">
+  <meta property="og:title" content="Dimas Studio · Diseño de sitios web">
+  <meta property="og:description" content="Ves tu sitio web antes de pagar. Creación $250, alojamiento y actualizaciones $69 al mes.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://dimasstudio.com/assets/og.png">
+  <meta property="og:url" content="https://dimasstudio.com/es.html">
+  <meta property="og:locale" content="es_419">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="apple-touch-icon" href="assets/favicon.png">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ProfessionalService","name":"Dimas Studio","description":"Diseño de sitios web para pequeñas empresas","areaServed":"Montreal, Quebec y Miami, Florida","telephone":"+1-514-945-2830","email":"info@dimasstudio.com","url":"https://dimasstudio.com/","priceRange":"$$"}
+  </script>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --bg-alt: #f5f5f7;
+      --ink: #1d1d1f;
+      --ink-2: #6e6e73;
+      --ink-3: #86868b;
+      --line: #d2d2d7;
+      --accent: #005afc;
+      --accent-hover: #0f66ff;
+      --dark: #000000;
+      --radius: 18px;
+      --ease: cubic-bezier(.28,.11,.32,1);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      color: var(--ink); background: var(--bg);
+      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+      line-height: 1.47; letter-spacing: -.011em;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    .wrap { width: min(1080px, calc(100% - 48px)); margin-inline: auto; }
+    .wrap-narrow { width: min(720px, calc(100% - 48px)); margin-inline: auto; }
+    :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+
+    h1, h2, h3 { font-weight: 600; letter-spacing: -.02em; line-height: 1.08; }
+    .display { font-size: clamp(44px, 7vw, 80px); font-weight: 700; letter-spacing: -.03em; line-height: 1.02; }
+    .headline { font-size: clamp(34px, 5vw, 56px); }
+    .sub { font-size: clamp(19px, 2.2vw, 26px); color: var(--ink-2); font-weight: 400; letter-spacing: -.012em; line-height: 1.35; }
+    .eyebrow { font-size: 14px; font-weight: 600; text-transform: uppercase; letter-spacing: .12em; color: var(--accent); margin-bottom: 14px; }
+    .muted { color: var(--ink-2); }
+
+    .btn {
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+      padding: 13px 24px; border-radius: 980px;
+      font-size: 17px; font-weight: 500; letter-spacing: -.01em;
+      transition: transform .25s var(--ease), background .25s var(--ease);
+      cursor: pointer; border: 0; white-space: nowrap; font-family: inherit;
+    }
+    .btn:active { transform: scale(.97); }
+    .btn-primary { background: var(--accent); color: #fff; }
+    .btn-primary:hover { background: var(--accent-hover); }
+    .btn-ghost { background: transparent; color: var(--accent); padding-inline: 4px; }
+    .btn-ghost:hover { text-decoration: underline; text-underline-offset: 3px; }
+    .btn-ghost::after { content: "›"; font-size: 22px; line-height: 1; margin-top: -3px; }
+    .btn-dark { background: var(--ink); color: #fff; }
+    .btn-dark:hover { background: #333336; }
+    .btn-light { background: #fff; color: var(--ink); }
+    .btn-light:hover { background: #f0f0f2; }
+    .btn[disabled] { opacity: .6; cursor: progress; }
+
+    /* Nav */
+    .nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(255,255,255,.72);
+      -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,.06);
+    }
+    .nav-inner { height: 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .logo img { height: 26px; width: auto; }
+    .nav-links { display: flex; gap: 32px; font-size: 13px; color: var(--ink); }
+    .nav-links a { opacity: .85; transition: opacity .2s; }
+    .nav-links a:hover { opacity: 1; color: var(--accent); }
+    .nav-right { display: flex; align-items: center; gap: 12px; }
+    .nav-cta { font-size: 13px; padding: 7px 16px; }
+    .nav-tel { font-size: 13px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+    .nav-tel:hover { color: var(--accent); }
+    .mbar { display: none; }
+    @media (max-width: 760px) {
+      .nav-tel { display: none; }
+      .mbar { position: fixed; left: 0; right: 0; bottom: 0; z-index: 60; display: grid; grid-template-columns: 1fr 1fr 1.4fr; gap: 8px; padding: 10px 12px calc(10px + env(safe-area-inset-bottom)); background: rgba(255,255,255,.92); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px); border-top: 1px solid rgba(0,0,0,.08); }
+      .mbar a { display: flex; align-items: center; justify-content: center; height: 44px; border-radius: 980px; font-size: 15px; font-weight: 600; border: 1px solid var(--line); color: var(--ink); background: #fff; }
+      .mbar a.on { background: var(--accent); color: #fff; border-color: var(--accent); }
+      body { padding-bottom: 72px; }
+    }
+    .lang { display: flex; gap: 4px; font-size: 12px; font-weight: 600; letter-spacing: .04em; }
+    .lang a { padding: 5px 7px; border-radius: 6px; color: var(--ink-3); }
+    .lang a:hover { color: var(--ink); }
+    .lang a.on { color: var(--ink); background: var(--bg-alt); }
+    .mobile-menu .lang-mobile { padding: 18px 0 8px; gap: 10px; font-size: 15px; }
+    .mobile-menu .lang-mobile a { display: inline-block; padding: 8px 16px; border-radius: 980px; border: 1px solid var(--line); border-bottom: 1px solid var(--line); font-size: 15px; }
+    .burger { display: none; width: 40px; height: 40px; border: 0; background: transparent; cursor: pointer; border-radius: 10px; }
+    .burger span { display: block; width: 20px; height: 2px; background: var(--ink); margin: 5px auto; transition: transform .3s var(--ease), opacity .3s; }
+    .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .burger[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+    .burger[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-menu { display: none; border-top: 1px solid rgba(0,0,0,.06); background: rgba(255,255,255,.96); }
+    .mobile-menu.open { display: block; }
+    .mobile-menu a { display: block; padding: 16px 0; font-size: 19px; font-weight: 500; border-bottom: 1px solid rgba(0,0,0,.06); }
+    .mobile-menu a:last-child { border-bottom: 0; }
+    @media (max-width: 760px) { .nav-links { display: none; } .burger { display: block; } .nav-cta { display: none; } .nav-right > .lang { display: none; } }
+
+    /* Hero */
+    .hero { padding: 110px 0 60px; text-align: center; }
+    .hero .display { max-width: 900px; margin-inline: auto; }
+    .hero .sub { max-width: 660px; margin: 22px auto 0; }
+    .hero-actions { display: flex; gap: 18px; justify-content: center; align-items: center; margin-top: 34px; flex-wrap: wrap; }
+    .hero-price { margin-top: 18px; font-size: 15px; color: var(--ink-3); }
+    .hero-price strong { color: var(--ink); font-weight: 600; }
+
+    /* Showcase (exemples) */
+    .showcase { margin: 72px auto 0; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    @media (max-width: 860px) { .showcase { grid-template-columns: 1fr; } }
+    .shot {
+      display: block; border-radius: 16px; overflow: hidden; background: #fff;
+      box-shadow: 0 20px 50px -25px rgba(0,0,0,.35); border: 1px solid rgba(0,0,0,.06);
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease); text-align: left;
+    }
+    .shot:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -25px rgba(0,0,0,.4); }
+    .shot .bar { display: flex; gap: 5px; padding: 9px 12px; background: #f1f1f4; border-bottom: 1px solid rgba(0,0,0,.05); }
+    .shot .bar i { width: 8px; height: 8px; border-radius: 50%; background: #d3d3d8; display: block; }
+    .shot img { aspect-ratio: 16 / 10; object-fit: cover; object-position: top; width: 100%; height: auto; }
+    .showcase { scroll-margin-top: 72px; }
+    .shot .cap { padding: 14px 16px 16px; font-size: 14px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+    .shot .cap b { font-weight: 600; display: block; }
+    .shot .cap span { color: var(--ink-3); font-size: 12px; }
+    .shot .cap em { color: var(--accent); font-style: normal; white-space: nowrap; }
+    .showcase-note { text-align: center; margin-top: 18px; font-size: 13px; color: var(--ink-3); }
+
+    section { padding: 110px 0; scroll-margin-top: 56px; }
+    .section-alt { background: var(--bg-alt); }
+    .section-dark { background: var(--dark); color: #fff; }
+    .section-dark .sub, .section-dark .muted { color: #a1a1a6; }
+    .center { text-align: center; }
+    .section-head { max-width: 760px; margin-inline: auto; }
+    .section-head .sub { margin-top: 18px; }
+
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 64px; }
+    @media (max-width: 960px) { .grid-4 { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 560px) { .grid-4 { grid-template-columns: 1fr; } }
+    .card { background: #fff; border-radius: var(--radius); padding: 32px 28px; box-shadow: 0 1px 2px rgba(0,0,0,.04); transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px -20px rgba(0,0,0,.18); }
+    .card h3 { font-size: 21px; margin: 18px 0 10px; }
+    .card p { color: var(--ink-2); font-size: 16px; }
+    .icon { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--bg-alt); color: var(--ink); }
+    .icon svg { width: 22px; height: 22px; stroke: currentColor; fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* Steps */
+    .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; margin-top: 64px; counter-reset: step; }
+    @media (max-width: 860px) { .steps { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 520px) { .steps { grid-template-columns: 1fr; } }
+    .step { position: relative; padding-top: 22px; border-top: 1px solid rgba(255,255,255,.14); }
+    .step::before { counter-increment: step; content: "0" counter(step); font-size: 13px; font-weight: 600; letter-spacing: .1em; color: #6e6e73; display: block; margin-bottom: 14px; }
+    .step h3 { font-size: 21px; margin-bottom: 8px; }
+    .step p { color: #a1a1a6; font-size: 15px; }
+
+    /* About */
+    .about { display: grid; grid-template-columns: 200px 1fr; gap: 48px; align-items: center; margin-top: 56px; }
+    @media (max-width: 700px) { .about { grid-template-columns: 1fr; gap: 28px; } }
+    .avatar { width: 200px; height: 200px; border-radius: 50%; background: linear-gradient(160deg, #eef2ff 0%, #dfe6ff 100%); display: grid; place-items: center; font-size: 56px; font-weight: 700; color: var(--accent); letter-spacing: -.04em; overflow: hidden; }
+    .avatar img { width: 100%; height: 100%; object-fit: cover; }
+    .about h3 { font-size: 28px; margin-bottom: 12px; }
+    .about p { font-size: 18px; color: var(--ink-2); margin-bottom: 12px; }
+    .about p:last-child { margin-bottom: 0; }
+
+    /* Pricing */
+    .launch { margin: 56px auto 0; max-width: 760px; background: var(--ink); color: #fff; border-radius: 16px; padding: 18px 24px; display: flex; gap: 16px; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; font-size: 16px; }
+    .launch b { font-weight: 600; }
+    .launch span { background: var(--accent); padding: 4px 10px; border-radius: 980px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
+    .pricing { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; margin-top: 24px; align-items: stretch; }
+    @media (max-width: 860px) { .pricing { grid-template-columns: 1fr; } }
+    .plan { background: #fff; border-radius: 24px; padding: 44px 40px; border: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
+    @media (max-width: 560px) { .plan { padding: 32px 24px; } }
+    .plan.featured { border-color: transparent; box-shadow: 0 30px 70px -30px rgba(0,0,0,.25); }
+    .plan .tag { position: absolute; top: 20px; right: 20px; font-size: 12px; font-weight: 600; letter-spacing: .04em; background: var(--accent); color: #fff; padding: 5px 11px; border-radius: 980px; }
+    .plan .name { font-size: 15px; font-weight: 600; color: var(--ink-2); text-transform: uppercase; letter-spacing: .1em; }
+    .plan .desc { margin-top: 10px; color: var(--ink-2); font-size: 16px; }
+    .lines { margin-top: 26px; display: grid; gap: 14px; }
+    .line { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
+    .line .l { font-size: 17px; }
+    .line .l small { display: block; color: var(--ink-3); font-size: 13px; margin-top: 2px; }
+    .line .amt { font-size: 34px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
+    .line .amt small { font-size: 15px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
+    .total { display: flex; justify-content: space-between; margin-top: 14px; font-size: 14px; color: var(--ink-3); }
+    .total b { color: var(--ink); font-weight: 600; }
+    .plan ul { list-style: none; margin: 28px 0 32px; display: grid; gap: 12px; }
+    .plan li { display: flex; gap: 12px; align-items: flex-start; font-size: 16px; }
+    .plan li svg { width: 18px; height: 18px; flex: none; margin-top: 3px; stroke: var(--accent); fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .plan .btn { margin-top: auto; }
+    .pricing-note { text-align: center; margin-top: 28px; font-size: 14px; color: var(--ink-3); max-width: 640px; margin-inline: auto; }
+
+    /* FAQ */
+    .faq { margin-top: 56px; border-top: 1px solid var(--line); }
+    .faq details { border-bottom: 1px solid var(--line); }
+    .faq summary { cursor: pointer; list-style: none; padding: 24px 0; display: flex; justify-content: space-between; align-items: center; gap: 24px; font-size: 19px; font-weight: 500; letter-spacing: -.015em; }
+    .faq summary::-webkit-details-marker { display: none; }
+    .faq summary::after { content: "+"; font-size: 26px; font-weight: 300; color: var(--ink-3); transition: transform .3s var(--ease); flex: none; }
+    .faq details[open] summary::after { transform: rotate(45deg); }
+    .faq details p { padding: 0 0 26px; color: var(--ink-2); font-size: 17px; max-width: 640px; }
+
+    /* Contact */
+    .contact-box { margin-top: 56px; background: #fff; border-radius: 24px; padding: 48px; box-shadow: 0 1px 2px rgba(0,0,0,.04); display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+    @media (max-width: 860px) { .contact-box { grid-template-columns: 1fr; padding: 32px 24px; gap: 32px; } }
+    .contact-box h3 { font-size: 28px; margin-bottom: 12px; }
+    .contact-box .lead { color: var(--ink-2); font-size: 17px; }
+    .contact-meta { margin-top: 32px; display: grid; gap: 14px; font-size: 16px; }
+    .contact-meta a { color: var(--accent); }
+    form { display: grid; gap: 14px; }
+    .field { display: grid; gap: 6px; }
+    label { font-size: 13px; font-weight: 500; color: var(--ink-2); }
+    input, textarea { font: inherit; font-size: 16px; padding: 13px 16px; border-radius: 12px; border: 1px solid var(--line); background: #fff; color: var(--ink); transition: border-color .2s, box-shadow .2s; width: 100%; }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 4px rgba(0,90,252,.15); }
+    input.err, textarea.err, .consent.err { border-color: #e0342c; }
+    textarea { min-height: 110px; resize: vertical; }
+    .consent { display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--ink-2); border: 1px solid transparent; border-radius: 8px; padding: 4px; }
+    .consent input { width: 18px; height: 18px; margin-top: 2px; padding: 0; flex: none; }
+    .consent a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .form-msg { display: none; padding: 16px; border-radius: 12px; font-size: 15px; }
+    .form-msg.ok { background: #eaf6ee; color: #1a7f37; }
+    .form-msg.ko { background: #fdecea; color: #b3261e; }
+    .form-msg.show { display: block; }
+
+    .cta-band { padding: 120px 0; text-align: center; }
+    .cta-band .headline { max-width: 800px; margin-inline: auto; }
+    .cta-band .sub { margin: 18px auto 0; max-width: 560px; }
+
+    footer { padding: 48px 0; border-top: 1px solid var(--line); background: var(--bg-alt); font-size: 13px; color: var(--ink-3); }
+    .foot-top { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; align-items: center; }
+    .foot-top img { height: 28px; width: auto; }
+    .foot-links { display: flex; gap: 22px; flex-wrap: wrap; }
+    .foot-links a:hover { color: var(--ink); }
+    .legal { margin-top: 28px; border-top: 1px solid var(--line); padding-top: 20px; }
+    .legal details { margin-bottom: 8px; }
+    .legal summary { cursor: pointer; font-weight: 500; color: var(--ink-2); padding: 6px 0; }
+    .legal p { max-width: 720px; margin: 8px 0; line-height: 1.55; }
+    .legal p b { color: var(--ink-2); }
+    .foot-bottom { margin-top: 20px; font-size: 12px; }
+
+    .reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+    .reveal.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="wrap nav-inner">
+      <a href="#top" class="logo" aria-label="Dimas Studio, inicio">
+        <img src="assets/logo-wordmark-sm.png" alt="Dimas Studio" width="600" height="100">
+      </a>
+      <nav class="nav-links" aria-label="Navegación principal">
+        <a href="#exemples">Ejemplos</a>
+        <a href="#services">Servicios</a>
+        <a href="#processus">Proceso</a>
+        <a href="#tarifs">Precios</a>
+        <a href="#faq">Preguntas</a>
+      </nav>
+      <div class="nav-right">
+        <a href="tel:+15149452830" class="nav-tel" data-track="tel_nav">514 945-2830</a>
+        <nav class="lang" aria-label="Idioma"><a href="https://dimasstudio.com/" lang="fr" hreflang="fr">FR</a><a href="https://dimasstudio.com/en.html" lang="en" hreflang="en">EN</a><a href="https://dimasstudio.com/es.html" lang="es" hreflang="es" class="on" aria-current="page">ES</a></nav>
+        <a href="#contact" class="btn btn-primary nav-cta" data-track="cta_nav">Maqueta gratis</a>
+        <button class="burger" id="burger" aria-label="Abrir el menú" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="wrap">
+        <a href="#exemples">Ejemplos</a>
+        <a href="#services">Servicios</a>
+        <a href="#processus">Proceso</a>
+        <a href="#tarifs">Precios</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#contact" style="color:var(--accent)">Recibir mi maqueta gratis</a>
+        <a href="tel:+15149452830" data-track="tel_menu">514 945-2830</a>
+        <a href="mailto:info@dimasstudio.com" data-track="mail_menu">info@dimasstudio.com</a>
+        <div class="lang lang-mobile"><a href="https://dimasstudio.com/" lang="fr" hreflang="fr">FR</a><a href="https://dimasstudio.com/en.html" lang="en" hreflang="en">EN</a><a href="https://dimasstudio.com/es.html" lang="es" hreflang="es" class="on" aria-current="page">ES</a></div>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="wrap">
+        <p class="eyebrow">Diseño de sitios web · Montreal · Miami</p>
+        <h1 class="display">Tu sitio web.<br>Simple. Bonito. Listo.</h1>
+        <p class="sub">Diseñamos el sitio web de tu empresa y te mostramos la maqueta antes de que pagues nada. Entregado en pocos días, a un precio anunciado de antemano y entre los más competitivos del mercado.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-primary" data-track="cta_hero">Ver mi maqueta gratis</a>
+          <a href="#tarifs" class="btn btn-ghost" data-track="cta_hero_tarifs">Ver los precios</a>
+        </div>
+        <p class="hero-price">Creación <strong>$250</strong> &nbsp;·&nbsp; Alojamiento y actualizaciones <strong>$69 / mes</strong> &nbsp;·&nbsp; Sin compromiso</p>
+
+        <div class="showcase reveal" id="exemples">
+          <a class="shot" href="https://www.indiarosa.com/" target="_blank" rel="noopener" data-track="exemple_restaurant">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/ex-indiarosa.gif" loading="lazy" alt="Sitio web del restaurante India Rosa, recorrido de la página de inicio" width="640" height="400">
+            <div class="cap"><div><b>Restaurante</b><span>India Rosa, Montreal y Brossard</span></div><em>Ver ›</em></div>
+          </a>
+          <a class="shot" href="https://www.klimbo.co/" target="_blank" rel="noopener" data-track="exemple_entrepreneur">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/ex-klimbo.gif" loading="lazy" alt="Página de presentación Klimbo K01 y K02, recorrido de la página" width="640" height="400">
+            <div class="cap"><div><b>Contratista</b><span>Klimbo, escalones retráctiles</span></div><em>Ver ›</em></div>
+          </a>
+          <a class="shot" href="https://www.stationlmtl.com/" target="_blank" rel="noopener" data-track="exemple_clinique">
+            <div class="bar"><i></i><i></i><i></i></div>
+            <img src="assets/ex-stationl.gif" loading="lazy" alt="Sitio web de la clínica Station L Medispa, recorrido de la página de inicio" width="640" height="400">
+            <div class="cap"><div><b>Clínica</b><span>Station L Medispa, Westmount</span></div><em>Ver ›</em></div>
+          </a>
+        </div>
+        <p class="showcase-note">Tres sitios que muestran el nivel que buscamos en cada sector: restaurante, contratista, clínica.</p>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section id="services" class="section-alt">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Lo que recibes</p>
+          <h2 class="headline">Todo lo necesario. Nada de más.</h2>
+          <p class="sub">Un sitio claro, rápido, adaptado al teléfono, y alguien que lo cuida después de publicarlo.</p>
+        </div>
+        <div class="grid-4">
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M3 9h18M8 21h8"/></svg></div>
+            <h3>Diseño a medida</h3>
+            <p>Un diseño limpio que pone tu oferta al frente, con tus colores y tu logotipo.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18h2"/></svg></div>
+            <h3>Perfecto en el móvil</h3>
+            <p>Diseñado primero para el teléfono, donde tus clientes te buscan.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg></div>
+            <h3>Visible en Google</h3>
+            <p>Títulos, descripciones y estructura optimizados desde el primer día, para que tus clientes te encuentren en Google y en Maps.</p>
+          </div>
+          <div class="card reveal">
+            <div class="icon"><svg viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 3v6h-6"/></svg></div>
+            <h3>Actualizado cada mes</h3>
+            <p>Un texto nuevo, una foto, una promoción: nos escribes y actualizamos tu sitio.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESSUS -->
+    <section id="processus" class="section-dark">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Proceso</p>
+          <h2 class="headline">Ves tu sitio web antes de pagar.</h2>
+          <p class="sub">No tienes nada que instalar ni que aprender. Nuestro equipo se ocupa de todo.</p>
+        </div>
+        <div class="steps">
+          <div class="step reveal">
+            <h3>Maqueta gratis</h3>
+            <p>Nos envías el nombre de tu empresa y a qué te dedicas. En menos de 48 horas te mostramos una primera maqueta. Sin costo, sin compromiso.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Ajustes</h3>
+            <p>Nos dices qué te gusta y qué no. Ajustamos los textos, los colores y las fotos.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Publicación</h3>
+            <p>Una vez aprobada la maqueta, tu sitio se publica en tu nombre de dominio, seguro y rápido.</p>
+          </div>
+          <div class="step reveal">
+            <h3>Evolución</h3>
+            <p>Cada mes puedes pedir cambios. Tu sitio acompaña a tu empresa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- À PROPOS -->
+    <section id="apropos">
+      <div class="wrap-narrow">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Nuestro equipo</p>
+          <h2 class="headline">Un equipo en Montreal, un solo punto de contacto.</h2>
+        </div>
+        <div class="about reveal">
+          <!-- Pour afficher une photo d'équipe : remplacer le contenu de .avatar par <img src="assets/equipe.jpg" alt="L'équipe Dimas Studio"> -->
+          <div class="avatar" aria-hidden="true"><img src="assets/logo-mark.png" alt="" style="object-fit:contain;padding:22%"></div>
+          <div>
+            <h3>Dimas Studio</h3>
+            <p>Somos un pequeño equipo de diseño web con sede en Montreal. Una sola persona sigue tu proyecto, desde la primera conversación hasta cada actualización: sin tickets de soporte, sin filas de espera.</p>
+            <p>Creamos Dimas Studio porque la mayoría de las pequeñas empresas que conocemos tienen un sitio demasiado viejo, demasiado caro de modificar, o ningún sitio. Eso se resuelve en pocos días, a un precio que una agencia no puede igualar.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TARIFS -->
+    <section id="tarifs" class="section-alt">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Precios</p>
+          <h2 class="headline">Un precio anunciado de antemano.</h2>
+          <p class="sub">Sabes exactamente lo que pagas antes de empezar. Una fracción del precio de una agencia, sin compromiso, cancelable en cualquier momento.</p>
+        </div>
+
+        <div class="pricing" style="margin-top:56px">
+          <div class="plan featured reveal">
+            <span class="tag">El más elegido</span>
+            <p class="name">Esencial</p>
+            <p class="desc">Un sitio de una página o de hasta cinco páginas, diseñado para ti y mantenido al día.</p>
+            <div class="lines">
+              <div class="line"><div class="l">Creación del sitio<small>Una sola vez, tras aprobar la maqueta</small></div><div class="amt">$250</div></div>
+              <div class="line"><div class="l">Alojamiento y actualizaciones<small>Necesario mientras el sitio esté en línea</small></div><div class="amt">$69<small> / mes</small></div></div>
+            </div>
+            <div class="total"><span>Primer año, todo incluido</span><b>$1,078</b></div>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Maqueta gratis antes de cualquier pago</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Hasta 5 secciones o páginas, adaptadas al móvil</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Formulario de contacto y SEO básico</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Alojamiento rápido y seguro, con copias de seguridad</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Hasta 3 solicitudes de cambio al mes</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Tus archivos y tu dominio te pertenecen</li>
+            </ul>
+            <a href="#contact" class="btn btn-primary" data-track="cta_plan_essentiel">Recibir mi maqueta gratis</a>
+          </div>
+
+          <div class="plan reveal">
+            <p class="name">Pro</p>
+            <p class="desc">Para la empresa que toma citas en línea o que tiene más que mostrar.</p>
+            <div class="lines">
+              <div class="line"><div class="l">Creación del sitio<small>Una sola vez</small></div><div class="amt">$590</div></div>
+              <div class="line"><div class="l">Alojamiento y actualizaciones<small>Necesario mientras el sitio esté en línea</small></div><div class="amt">$99<small> / mes</small></div></div>
+            </div>
+            <div class="total"><span>Primer año, todo incluido</span><b>$1,778</b></div>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Todo lo del plan Esencial</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Hasta 10 páginas</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Reserva de citas en línea</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Perfil de Google Business configurado</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Solicitudes de cambio ilimitadas</li>
+            </ul>
+            <a href="#contact" class="btn btn-dark" data-track="cta_plan_pro">Hablar del plan Pro</a>
+          </div>
+        </div>
+        <p class="pricing-note">Precios en dólares canadienses, impuestos no incluidos. El nombre de dominio se factura a su costo real. Más allá de las páginas incluidas, el precio se anuncia y se aprueba antes de cualquier trabajo.</p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+      <div class="wrap-narrow">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2 class="headline">Lo que nos preguntan a menudo.</h2>
+        </div>
+        <div class="faq reveal">
+          <details>
+            <summary>¿La maqueta es realmente gratis?</summary>
+            <p>Sí. Nos envías el nombre de tu empresa y a qué te dedicas, y te mostramos una primera versión en menos de 48 horas. Si no te convence, no debes nada. Solo pagas la creación una vez aprobada la maqueta.</p>
+          </details>
+          <details>
+            <summary>¿Qué es una solicitud de cambio?</summary>
+            <p>Una modificación de tu sitio: un texto, una foto, un precio, una promoción, una sección nueva. El plan Esencial incluye hasta tres al mes, y cada una puede agrupar varios cambios pequeños. El plan Pro no tiene límite.</p>
+          </details>
+          <details>
+            <summary>¿Soy dueño de mi sitio web?</summary>
+            <p>Sí. Si cancelas la suscripción, te entregamos los archivos completos de tu sitio y el nombre de dominio queda a tu nombre. Puedes alojarlo en otro lugar. La suscripción paga el alojamiento y nuestro trabajo de actualización, no la propiedad del sitio.</p>
+          </details>
+          <details>
+            <summary>¿Puedo cancelar la suscripción?</summary>
+            <p>Sí, en cualquier momento y sin penalización. La suscripción mensual es necesaria mientras mantengamos tu sitio en línea y al día. En cuanto cancelas, te enviamos tus archivos.</p>
+          </details>
+          <details>
+            <summary>¿En cuánto tiempo estará en línea mi sitio?</summary>
+            <p>Maqueta en menos de 48 horas. Luego, cuenta unos días hábiles entre la maqueta aprobada y la publicación, según la rapidez con la que nos envíes tus textos, tu logotipo y tus fotos.</p>
+          </details>
+          <details>
+            <summary>¿Debo proporcionar mis textos y mis fotos?</summary>
+            <p>Idealmente, sí. Si no los tienes, te guiamos para redactarlos y te proponemos imágenes adecuadas a tu sector.</p>
+          </details>
+          <details>
+            <summary>¿El nombre de dominio está incluido?</summary>
+            <p>El nombre de dominio se factura a su costo real y se registra a tu nombre. Si ya tienes uno, lo conectamos a tu nuevo sitio.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="section-alt">
+      <div class="wrap">
+        <div class="section-head center reveal">
+          <p class="eyebrow">Maqueta gratis</p>
+          <h2 class="headline">Ve tu sitio web antes de pagar.</h2>
+          <p class="sub">Cuéntanos en pocas líneas a qué se dedica tu empresa. Te mostramos una primera maqueta en menos de 48 horas.</p>
+        </div>
+        <div class="contact-box reveal">
+          <div>
+            <h3>Dimas Studio</h3>
+            <p class="lead">Diseño de sitios web para empresas que quieren ir a lo esencial. Un equipo, un solo punto de contacto.</p>
+            <div class="contact-meta">
+              <div><span class="muted">Teléfono</span><br><a href="tel:+15149452830" data-track="tel_contact">+1 (514) 945-2830</a> &nbsp;·&nbsp; <a href="sms:+15149452830" data-track="sms_contact">Escríbenos por SMS</a></div>
+              <div><span class="muted">Correo</span><br><a href="mailto:info@dimasstudio.com" data-track="mail_contact">info@dimasstudio.com</a></div>
+              <div><span class="muted">Oficinas</span><br>Montreal · Miami</div>
+              <div><span class="muted">Tiempo de respuesta</span><br>Menos de 24 horas, en días hábiles</div>
+            </div>
+          </div>
+          <form id="contact-form" novalidate action="https://formsubmit.co/info@dimasstudio.com" method="POST">
+            <input type="hidden" name="_subject" value="Solicitud de maqueta">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://dimasstudio.com/es.html#contact">
+            <div class="field">
+              <label for="name">Tu nombre</label>
+              <input id="name" name="name" type="text" autocomplete="name" required placeholder="Nombre y apellido">
+            </div>
+            <div class="field">
+              <label for="email">Correo electrónico</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="tu@empresa.com">
+            </div>
+            <div class="field">
+              <label for="company">Empresa</label>
+              <input id="company" name="company" type="text" autocomplete="organization" required placeholder="Nombre de tu empresa">
+            </div>
+            <div class="field">
+              <label for="message">¿A qué se dedica tu empresa?</label>
+              <textarea id="message" name="message" required placeholder="Con dos o tres frases basta. Si ya tienes un sitio, pega su dirección."></textarea>
+            </div>
+            <label class="consent" id="consent-wrap">
+              <input type="checkbox" id="consent" name="consent" required>
+              <span>Acepto que Dimas Studio use esta información para responder a mi solicitud, conforme a la <a href="#confidentialite">política de privacidad</a>.</span>
+            </label>
+            <button type="submit" class="btn btn-primary" id="submit-btn" data-track="form_submit">Recibir mi maqueta gratis</button>
+            <p class="form-msg ok" id="form-ok">Gracias. Hemos recibido tu solicitud. Tendrás noticias nuestras en menos de 24 horas, y tu maqueta en menos de 48.</p>
+            <p class="form-msg ko" id="form-ko">No se pudo enviar el mensaje. Inténtalo de nuevo en un momento, o escríbenos a <a href="mailto:info@dimasstudio.com">info@dimasstudio.com</a> o llama al <a href="tel:+15149452830">514 945-2830</a>.</p>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-band section-dark">
+      <div class="wrap reveal">
+        <h2 class="headline">Tu maqueta gratis en&nbsp;48&nbsp;horas.<br>Después decides tú.</h2>
+        <p class="sub">Creación $250. Alojamiento y actualizaciones $69 al mes. Sin compromiso.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-light" data-track="cta_band">Recibir mi maqueta gratis</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="mbar" aria-label="Contacto rápido">
+    <a href="tel:+15149452830" data-track="tel_bar">Llamar</a>
+    <a href="sms:+15149452830" data-track="sms_bar">SMS</a>
+    <a href="#contact" class="on" data-track="cta_bar">Maqueta gratis</a>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <div class="foot-top">
+        <img src="assets/logo-wordmark-sm.png" alt="Dimas Studio" width="600" height="100">
+        <div class="foot-links">
+          <a href="#exemples">Ejemplos</a>
+          <a href="#tarifs">Precios</a>
+          <a href="#faq">Preguntas</a>
+          <a href="#contact">Contacto</a>
+          <a href="#confidentialite">Privacidad</a>
+          <a href="#conditions">Condiciones</a>
+        </div>
+      </div>
+      <div class="legal">
+        <details id="confidentialite">
+          <summary>Política de privacidad</summary>
+          <p><b>Información recopilada.</b> El formulario de esta página recopila tu nombre, tu correo electrónico, el nombre de tu empresa y el mensaje que escribes.</p>
+          <p><b>Finalidad.</b> Esta información sirve únicamente para responder a tu solicitud de maqueta y preparar tu sitio. No se vende ni se transmite a terceros con fines comerciales. Pasa por un servicio de envío de formularios hacia nuestro buzón de correo.</p>
+          <p><b>Conservación y derechos.</b> Se conserva el tiempo necesario para tratar tu solicitud y, luego, mientras dure nuestra relación comercial. Puedes pedir acceso, corrección o eliminación en cualquier momento escribiéndonos.</p>
+          <p><b>Responsable de la protección de los datos personales.</b> La dirección de Dimas Studio, Montreal (Quebec), localizable en <a href="mailto:info@dimasstudio.com">info@dimasstudio.com</a> o al +1 (514) 945-2830.</p>
+        </details>
+        <details id="conditions">
+          <summary>Condiciones del servicio</summary>
+          <p><b>Maqueta.</b> La primera maqueta es gratuita y sin compromiso. El costo de creación se factura una sola vez, tras tu aprobación por escrito de la maqueta.</p>
+          <p><b>Suscripción.</b> El alojamiento y las actualizaciones se facturan mensualmente, sin plazo mínimo. El plan Esencial incluye hasta tres solicitudes de cambio al mes; el plan Pro no tiene límite. Toda solicitud que exceda el plan se cotiza y se aprueba antes de realizarse.</p>
+          <p><b>Cancelación y propiedad.</b> Puedes cancelar en cualquier momento por correo electrónico. El sitio se retira al final del período pagado y se te entregan los archivos completos. El nombre de dominio se registra a tu nombre y sigue siendo tuyo.</p>
+          <p><b>Precios.</b> Precios en dólares canadienses, impuestos no incluidos. El nombre de dominio se factura a su costo real.</p>
+        </details>
+      </div>
+      <div class="foot-bottom">© <span id="year"></span> Dimas Studio. Montreal · Miami. Todos los derechos reservados. &nbsp;·&nbsp; <a href="tel:+15149452830">+1 (514) 945-2830</a> &nbsp;·&nbsp; <a href="mailto:info@dimasstudio.com">info@dimasstudio.com</a></div>
+    </div>
+  </footer>
+
+  <script>
+    // Adresse qui reçoit les demandes du formulaire (acheminement par FormSubmit, sans serveur).
+    // À la première demande, FormSubmit envoie un courriel d'activation à cette adresse : cliquer le lien une seule fois.
+    var FORM_TO = 'info@dimasstudio.com';
+    var FORM_ENDPOINT = 'https://formsubmit.co/ajax/' + FORM_TO;
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Mesure : coller ici le script GA4 ou Plausible. track() relaie l'événement s'il existe, sinon ne fait rien.
+    function track(name) {
+      try {
+        if (window.plausible) window.plausible(name);
+        if (window.gtag) window.gtag('event', name);
+      } catch (e) {}
+    }
+    document.querySelectorAll('[data-track]').forEach(function (el) {
+      el.addEventListener('click', function () { track(el.getAttribute('data-track')); });
+    });
+
+    // Menu mobile
+    var burger = document.getElementById('burger');
+    var menu = document.getElementById('mobile-menu');
+    burger.addEventListener('click', function () {
+      var open = menu.classList.toggle('open');
+      burger.setAttribute('aria-expanded', open ? 'true' : 'false');
+      burger.setAttribute('aria-label', open ? 'Cerrar el menú' : 'Abrir el menú');
+    });
+    menu.querySelectorAll('a').forEach(function (a) {
+      a.addEventListener('click', function () { menu.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); });
+    });
+
+    // Un lien vers #confidentialite ou #conditions déplie le bloc visé
+    function openHashDetails() {
+      var t = location.hash && document.querySelector(location.hash);
+      if (t && t.tagName === 'DETAILS') t.open = true;
+    }
+    window.addEventListener('hashchange', openHashDetails);
+    openHashDetails();
+
+    // Apparition au défilement
+    var els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+      }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+      els.forEach(function (el) { io.observe(el); });
+    } else {
+      els.forEach(function (el) { el.classList.add('in'); });
+    }
+
+    // Formulaire : envoi réel, confirmation seulement après réponse du serveur
+    var form = document.getElementById('contact-form');
+    var okMsg = document.getElementById('form-ok');
+    var koMsg = document.getElementById('form-ko');
+    var btn = document.getElementById('submit-btn');
+    form.addEventListener('submit', function (ev) {
+      ev.preventDefault();
+      okMsg.classList.remove('show'); koMsg.classList.remove('show');
+      var valid = true;
+      [form.name, form.email, form.company, form.message].forEach(function (f) {
+        var ok = f.value.trim() !== '' && (f.type !== 'email' || /.+@.+\..+/.test(f.value));
+        f.classList.toggle('err', !ok);
+        if (!ok) valid = false;
+      });
+      var consentWrap = document.getElementById('consent-wrap');
+      consentWrap.classList.toggle('err', !form.consent.checked);
+      if (!form.consent.checked) valid = false;
+      if (!valid) return;
+
+      btn.disabled = true; btn.textContent = 'Enviando…';
+      var payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        company: form.company.value.trim(),
+        message: form.message.value.trim(),
+        _subject: 'Solicitud de maqueta · ' + form.company.value.trim(),
+        lang: 'es',
+        _replyto: form.email.value.trim(),
+        _template: 'table',
+        _captcha: 'false',
+        _cc: 'miguel.dimas@klimbo.co',
+        _autoresponse: 'Gracias, hemos recibido tu solicitud de maqueta. Tendrás noticias nuestras en menos de 24 horas, en días hábiles. Dimas Studio, +1 (514) 945-2830.'
+      };
+      fetch(FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      }).then(function (r) {
+        if (!r.ok) throw new Error('HTTP ' + r.status);
+        return r.json();
+      }).then(function (data) {
+        if (data && (data.success === 'true' || data.success === true)) {
+          form.reset();
+          okMsg.classList.add('show');
+          track('form_success');
+        } else {
+          throw new Error('refus');
+        }
+      }).catch(function () {
+        koMsg.classList.add('show');
+        track('form_error');
+      }).finally(function () {
+        btn.disabled = false; btn.textContent = 'Recibir mi maqueta gratis';
+      });
+    });
+  </script>
+</body>
+</html>
