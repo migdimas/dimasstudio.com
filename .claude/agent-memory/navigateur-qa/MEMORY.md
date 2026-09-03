@@ -1,0 +1,1 @@
+- [CRM Dimas Studio — concurrence base partagée + bouton Supprimer instable](feedback_crm_dimasstudio_concurrence.md) — dimasstudio.com/crm écrit en direct dans Google Sheets ; ne pas tester en parallèle d'un autre agent, vérifier par delta/nom plutôt que compteur absolu ; bouton Supprimer capricieux (clic double sans wait).

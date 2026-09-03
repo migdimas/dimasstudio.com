@@ -276,6 +276,7 @@
   let settings = { team: ['Miguel', 'Associé'] };
   let view = 'board';
   let openId = null;             // fiche ouverte
+  let confirmingId = null;       // fiche dont la suppression attend confirmation
   let creating = false;
   let filters = { q: '', seg: '', owner: '' };
   let store = null;
@@ -542,7 +543,7 @@
   // ---------- fiche (panneau) ----------
   function openDrawer(id) { openId = id; creating = false; renderDrawer(); $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden', 'false'); }
   function openCreate() { openId = null; creating = true; renderDrawer(); $('#drawer').classList.add('on'); $('#scrim').classList.add('on'); $('#drawer').setAttribute('aria-hidden', 'false'); setTimeout(() => $('#drawer input')?.focus(), 50); }
-  function closeDrawer() { openId = null; creating = false; $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden', 'true'); }
+  function closeDrawer() { openId = null; creating = false; confirmingId = null; $('#drawer').classList.remove('on'); $('#scrim').classList.remove('on'); $('#drawer').setAttribute('aria-hidden', 'true'); }
   function markSaved(t) { const s = $('#drawer .saved'); if (s) s.textContent = t; }
 
   function field(label, input) { const f = el('div', 'field'); const l = el('label', null, label); f.append(l, input); return f; }
@@ -646,12 +647,14 @@
     // Pied
     const foot = el('div', 'd-foot');
     const del = el('button', 'btn small danger', 'Supprimer');
-    del.addEventListener('click', () => {
+    const confirmBox = () => {
       const c = el('div', 'confirm'); const yes = el('button', 'btn small danger', 'Oui, supprimer'); const no = el('button', 'btn small', 'Annuler');
-      yes.addEventListener('click', () => removeLead(d.id)); no.addEventListener('click', () => { c.replaceWith(del); });
-      c.append(document.createTextNode('Supprimer ce commerce ?'), yes, no); del.replaceWith(c);
-    });
-    foot.append(del, el('span', 'saved', 'Modifié ' + (d.updatedAt ? new Date(d.updatedAt).toLocaleDateString('fr-CA') : '')));
+      yes.addEventListener('click', () => { confirmingId = null; removeLead(d.id); });
+      no.addEventListener('click', () => { confirmingId = null; c.replaceWith(del); });
+      c.append(document.createTextNode('Supprimer ce commerce ?'), yes, no); return c;
+    };
+    del.addEventListener('click', () => { confirmingId = d.id; del.replaceWith(confirmBox()); });
+    foot.append(confirmingId === d.id ? confirmBox() : del, el('span', 'saved', 'Modifié ' + (d.updatedAt ? new Date(d.updatedAt).toLocaleDateString('fr-CA') : '')));
     dr.append(head, body, foot);
   }
   function fact(k, v) { const w = el('div'); w.append(el('div', 'k', k), el('div', null, v)); return w; }
