@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dimas Studio · Création de sites web à Montréal</title>
-  <meta name="description" content="Dimas Studio conçoit le site web de votre entreprise. Vous voyez votre maquette gratuite avant de payer. Création 250 $, hébergement et itérations 69 $ par mois.">
+  <meta name="description" content="Dimas Studio conçoit le site web de votre entreprise. Vous voyez votre maquette gratuite avant de payer. Création 250 $, hébergement et mises à jour 99 $ par mois, sans engagement.">
   <!-- Remplacer les URL relatives ci-dessous par des URL absolues (https://votre-domaine/...) au moment du déploiement : Facebook et Messenger exigent une adresse complète. -->
   <link rel="canonical" href="https://dimasstudio.com/">
   <link rel="alternate" hreflang="fr" href="https://dimasstudio.com/">
@@ -12,7 +12,7 @@
   <link rel="alternate" hreflang="es" href="https://dimasstudio.com/es.html">
   <link rel="alternate" hreflang="x-default" href="https://dimasstudio.com/">
   <meta property="og:title" content="Dimas Studio · Création de sites web">
-  <meta property="og:description" content="Vous voyez votre site avant de payer. Création 250 $, hébergement et itérations 69 $ par mois.">
+  <meta property="og:description" content="Vous voyez votre site avant de payer. Création 250 $, hébergement et mises à jour 99 $ par mois.">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://dimasstudio.com/assets/og.png">
   <meta property="og:url" content="https://dimasstudio.com/">
@@ -185,9 +185,11 @@
     .launch { margin: 56px auto 0; max-width: 760px; background: var(--ink); color: #fff; border-radius: 16px; padding: 18px 24px; display: flex; gap: 16px; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; font-size: 16px; }
     .launch b { font-weight: 600; }
     .launch span { background: var(--accent); padding: 4px 10px; border-radius: 980px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-    .pricing { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; margin-top: 24px; align-items: stretch; }
-    @media (max-width: 860px) { .pricing { grid-template-columns: 1fr; } }
-    .plan { background: #fff; border-radius: 24px; padding: 44px 40px; border: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; align-items: stretch; }
+    @media (max-width: 1000px) { .pricing { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; } }
+    .pay { margin-top: 14px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .pay b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); margin-bottom: 4px; }
+    .plan { background: #fff; border-radius: 24px; padding: 36px 28px; border: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
     @media (max-width: 560px) { .plan { padding: 32px 24px; } }
     .plan.featured { border-color: transparent; box-shadow: 0 30px 70px -30px rgba(0,0,0,.25); }
     .plan .tag { position: absolute; top: 20px; right: 20px; font-size: 12px; font-weight: 600; letter-spacing: .04em; background: var(--accent); color: #fff; padding: 5px 11px; border-radius: 980px; }
@@ -197,7 +199,7 @@
     .line { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
     .line .l { font-size: 17px; }
     .line .l small { display: block; color: var(--ink-3); font-size: 13px; margin-top: 2px; }
-    .line .amt { font-size: 34px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
+    .line .amt { font-size: 30px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
     .line .amt small { font-size: 15px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
     .total { display: flex; justify-content: space-between; margin-top: 14px; font-size: 14px; color: var(--ink-3); }
     .total b { color: var(--ink); font-weight: 600; }
@@ -307,7 +309,7 @@
           <a href="#contact" class="btn btn-primary" data-track="cta_hero">Voir ma maquette gratuite</a>
           <a href="#tarifs" class="btn btn-ghost" data-track="cta_hero_tarifs">Voir les tarifs</a>
         </div>
-        <p class="hero-price">Création <strong>250 $</strong> &nbsp;·&nbsp; Hébergement et itérations <strong>69 $ / mois</strong> &nbsp;·&nbsp; Sans engagement</p>
+        <p class="hero-price">Création <strong>250 $</strong> &nbsp;·&nbsp; Hébergement et mises à jour <strong>99 $ / mois</strong> &nbsp;·&nbsp; Sans engagement</p>
 
         <div class="showcase reveal" id="exemples">
           <a class="shot" href="https://www.indiarosa.com/" target="_blank" rel="noopener" data-track="exemple_restaurant">
@@ -417,7 +419,7 @@
         <div class="section-head center reveal">
           <p class="eyebrow">Tarification</p>
           <h2 class="headline">Un prix annoncé d'avance.</h2>
-          <p class="sub">Vous savez exactement ce que vous payez, avant de commencer. Une fraction du prix d'une agence, sans engagement, annulable en tout temps.</p>
+          <p class="sub">Trois forfaits, un prix annoncé d'avance. Une fraction du prix d'une agence, sans engagement, annulable en tout temps.</p>
         </div>
 
         <div class="pricing" style="margin-top:56px">
@@ -427,9 +429,10 @@
             <p class="desc">Un site d'une page ou jusqu'à cinq pages, conçu pour vous et tenu à jour.</p>
             <div class="lines">
               <div class="line"><div class="l">Création du site<small>Une seule fois, après approbation de la maquette</small></div><div class="amt">250 $</div></div>
-              <div class="line"><div class="l">Hébergement et itérations<small>Requis tant que le site est en ligne</small></div><div class="amt">69 $<small> / mois</small></div></div>
+              <div class="line"><div class="l">Hébergement et mises à jour<small>Requis tant que le site est en ligne</small></div><div class="amt">99 $<small> / mois</small></div></div>
             </div>
-            <div class="total"><span>Première année, tout compris</span><b>1 078 $</b></div>
+            <div class="total"><span>Première année, tout compris</span><b>1 438 $</b></div>
+            <div class="pay"><b>Autres façons de payer</b>0 $ comptant, puis 129 $ / mois pendant 12 mois<br>ou 990 $ par an, deux mois offerts</div>
             <ul>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Maquette gratuite avant tout paiement</li>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Jusqu'à 5 sections ou pages, adaptées au mobile</li>
@@ -443,23 +446,43 @@
 
           <div class="plan reveal">
             <p class="name">Pro</p>
-            <p class="desc">Pour l'entreprise qui prend des rendez-vous en ligne ou qui a plus à montrer.</p>
+            <p class="desc">Pour le commerce qui prend des rendez-vous en ligne ou qui a plus à montrer.</p>
             <div class="lines">
               <div class="line"><div class="l">Création du site<small>Une seule fois</small></div><div class="amt">590 $</div></div>
-              <div class="line"><div class="l">Hébergement et itérations<small>Requis tant que le site est en ligne</small></div><div class="amt">99 $<small> / mois</small></div></div>
+              <div class="line"><div class="l">Hébergement et mises à jour<small>Requis tant que le site est en ligne</small></div><div class="amt">169 $<small> / mois</small></div></div>
             </div>
-            <div class="total"><span>Première année, tout compris</span><b>1 778 $</b></div>
+            <div class="total"><span>Première année, tout compris</span><b>2 618 $</b></div>
+            <div class="pay"><b>Autres façons de payer</b>0 $ comptant, puis 235 $ / mois pendant 12 mois<br>ou 1 690 $ par an, deux mois offerts</div>
             <ul>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Tout l'Essentiel</li>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Jusqu'à 10 pages</li>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Prise de rendez-vous en ligne</li>
-              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Fiche Google Business configurée</li>
-              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Demandes de changement illimitées</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Fiche Google Business gérée</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Jusqu'à 8 demandes de changement par mois</li>
             </ul>
             <a href="#contact" class="btn btn-dark" data-track="cta_plan_pro">Discuter du forfait Pro</a>
           </div>
+
+          <div class="plan reveal">
+            <p class="name">Commerce</p>
+            <p class="desc">Pour vendre, réserver ou commander en ligne, ou pour plusieurs adresses.</p>
+            <div class="lines">
+              <div class="line"><div class="l">Création du site<small>Une seule fois</small></div><div class="amt">990 $</div></div>
+              <div class="line"><div class="l">Hébergement et mises à jour<small>Requis tant que le site est en ligne</small></div><div class="amt">249 $<small> / mois</small></div></div>
+            </div>
+            <div class="total"><span>Première année, tout compris</span><b>3 978 $</b></div>
+            <div class="pay"><b>Autres façons de payer</b>0 $ comptant, puis 349 $ / mois pendant 12 mois<br>ou 2 490 $ par an, deux mois offerts</div>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Tout le Pro</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Jusqu'à 15 pages</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Commande, réservation ou boutique en ligne, jusqu’à 50 produits</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Plusieurs établissements sur un même site</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>Jusqu'à 12 demandes de changement par mois, priorité 24 h</li>
+            </ul>
+            <a href="#contact" class="btn btn-dark" data-track="cta_plan_commerce">Discuter du forfait Commerce</a>
+          </div>
         </div>
-        <p class="pricing-note">Prix en dollars canadiens, taxes en sus. Le nom de domaine est facturé à son coût réel. Au-delà des pages comprises, le prix est annoncé et approuvé avant tout travail.</p>
+        <p class="pricing-note">Prix en dollars canadiens, taxes en sus. Le nom de domaine est facturé à son coût réel. Une demande de changement couvre jusqu'à 30 minutes de travail. Au-delà des pages ou des demandes comprises, le prix est annoncé et approuvé avant tout travail.</p>
       </div>
     </section>
 
@@ -477,7 +500,7 @@
           </details>
           <details>
             <summary>Qu'est-ce qu'une itération ?</summary>
-            <p>Une demande de changement sur votre site : un texte, une photo, un prix, une promotion, une nouvelle section. Le forfait Essentiel en comprend jusqu'à trois par mois, chacune pouvant regrouper plusieurs petits changements. Le forfait Pro n'a pas de limite.</p>
+            <p>Une demande de changement sur votre site : un texte, une photo, un prix, une promotion, une nouvelle section. Chaque demande couvre jusqu'à 30 minutes de travail. L'Essentiel en comprend 3 par mois, le Pro 8 et le Commerce 12. Une demande de plus se facture 45 $.</p>
           </details>
           <details>
             <summary>Est-ce que je possède mon site ?</summary>
@@ -485,7 +508,7 @@
           </details>
           <details>
             <summary>Puis-je arrêter l'abonnement ?</summary>
-            <p>Oui, en tout temps, sans pénalité. L'abonnement mensuel est requis tant que nous gardons votre site en ligne et à jour. Dès que vous arrêtez, nous vous transmettons vos fichiers.</p>
+            <p>Oui, en tout temps, sans pénalité, sur les forfaits mensuels. Le prépaiement annuel, lui, vous engage pour douze mois en échange de deux mois offerts : il n'est pas remboursable, mais votre site reste en ligne jusqu'à la fin de la période payée. Dans tous les cas, nous vous transmettons vos fichiers.</p>
           </details>
           <details>
             <summary>En combien de temps mon site sera-t-il en ligne ?</summary>
@@ -559,7 +582,7 @@
     <section class="cta-band section-dark">
       <div class="wrap reveal">
         <h2 class="headline">Votre maquette gratuite en&nbsp;48&nbsp;h.<br>Vous décidez ensuite.</h2>
-        <p class="sub">Création 250 $. Hébergement et itérations 69 $ par mois. Sans engagement.</p>
+        <p class="sub">Création 250 $. Hébergement et mises à jour 99 $ par mois. Sans engagement.</p>
         <div class="hero-actions">
           <a href="#contact" class="btn btn-light" data-track="cta_band">Recevoir ma maquette gratuite</a>
         </div>
@@ -598,7 +621,7 @@
         <details id="conditions">
           <summary>Conditions de service</summary>
           <p><b>Maquette.</b> La première maquette est gratuite et sans obligation. Les frais de création sont facturés une seule fois, après votre approbation écrite de la maquette.</p>
-          <p><b>Abonnement.</b> L'hébergement et les itérations sont facturés mensuellement, sans durée minimale. Le forfait Essentiel comprend jusqu'à trois demandes de changement par mois ; le forfait Pro n'a pas de limite. Toute demande dépassant le forfait est chiffrée et approuvée avant exécution.</p>
+          <p><b>Abonnement.</b> L'hébergement et les mises à jour sont facturés mensuellement, sans durée minimale, ou annuellement d'avance (dix mois payés pour douze, non remboursable). L'option « 0 $ comptant » étale la création sur douze mois et engage pour cette durée. Chaque demande de changement couvre jusqu'à 30 minutes ; l'Essentiel en comprend 3 par mois, le Pro 8, le Commerce 12 ; toute demande supplémentaire est facturée 45 $ et approuvée avant exécution.</p>
           <p><b>Résiliation et propriété.</b> Vous pouvez résilier en tout temps par courriel. Le site est retiré à la fin de la période payée et les fichiers complets vous sont remis. Le nom de domaine est enregistré à votre nom et reste le vôtre.</p>
           <p><b>Prix.</b> Prix en dollars canadiens, taxes en sus. Le nom de domaine est facturé à son coût réel.</p>
         </details>

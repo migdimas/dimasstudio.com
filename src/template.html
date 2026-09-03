@@ -182,9 +182,11 @@
     .launch { margin: 56px auto 0; max-width: 760px; background: var(--ink); color: #fff; border-radius: 16px; padding: 18px 24px; display: flex; gap: 16px; align-items: center; justify-content: center; text-align: center; flex-wrap: wrap; font-size: 16px; }
     .launch b { font-weight: 600; }
     .launch span { background: var(--accent); padding: 4px 10px; border-radius: 980px; font-size: 13px; font-weight: 600; letter-spacing: .04em; }
-    .pricing { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; margin-top: 24px; align-items: stretch; }
-    @media (max-width: 860px) { .pricing { grid-template-columns: 1fr; } }
-    .plan { background: #fff; border-radius: 24px; padding: 44px 40px; border: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
+    .pricing { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; align-items: stretch; }
+    @media (max-width: 1000px) { .pricing { grid-template-columns: 1fr; max-width: 560px; margin-inline: auto; } }
+    .pay { margin-top: 14px; font-size: 13px; color: var(--ink-2); line-height: 1.5; }
+    .pay b { display: block; font-size: 11px; text-transform: uppercase; letter-spacing: .1em; color: var(--ink-3); margin-bottom: 4px; }
+    .plan { background: #fff; border-radius: 24px; padding: 36px 28px; border: 1px solid var(--line); display: flex; flex-direction: column; position: relative; }
     @media (max-width: 560px) { .plan { padding: 32px 24px; } }
     .plan.featured { border-color: transparent; box-shadow: 0 30px 70px -30px rgba(0,0,0,.25); }
     .plan .tag { position: absolute; top: 20px; right: 20px; font-size: 12px; font-weight: 600; letter-spacing: .04em; background: var(--accent); color: #fff; padding: 5px 11px; border-radius: 980px; }
@@ -194,7 +196,7 @@
     .line { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-bottom: 1px solid var(--line); padding-bottom: 14px; }
     .line .l { font-size: 17px; }
     .line .l small { display: block; color: var(--ink-3); font-size: 13px; margin-top: 2px; }
-    .line .amt { font-size: 34px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
+    .line .amt { font-size: 30px; font-weight: 700; letter-spacing: -.03em; white-space: nowrap; }
     .line .amt small { font-size: 15px; font-weight: 400; color: var(--ink-2); letter-spacing: 0; }
     .total { display: flex; justify-content: space-between; margin-top: 14px; font-size: 14px; color: var(--ink-3); }
     .total b { color: var(--ink); font-weight: 600; }
@@ -427,6 +429,7 @@
               <div class="line"><div class="l">{{line_host}}<small>{{line_host_sub}}</small></div><div class="amt">{{p1_month}}<small>{{per_month}}</small></div></div>
             </div>
             <div class="total"><span>{{first_year}}</span><b>{{p1_total}}</b></div>
+            <div class="pay"><b>{{pay_or}}</b>{{p1_pay0}}<br>{{p1_payyear}}</div>
             <ul>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f1}}</li>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p1_f2}}</li>
@@ -446,6 +449,7 @@
               <div class="line"><div class="l">{{line_host}}<small>{{line_host_sub}}</small></div><div class="amt">{{p2_month}}<small>{{per_month}}</small></div></div>
             </div>
             <div class="total"><span>{{first_year}}</span><b>{{p2_total}}</b></div>
+            <div class="pay"><b>{{pay_or}}</b>{{p2_pay0}}<br>{{p2_payyear}}</div>
             <ul>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f1}}</li>
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f2}}</li>
@@ -454,6 +458,25 @@
               <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p2_f5}}</li>
             </ul>
             <a href="#contact" class="btn btn-dark" data-track="cta_plan_pro">{{p2_cta}}</a>
+          </div>
+
+          <div class="plan reveal">
+            <p class="name">{{plan3_name}}</p>
+            <p class="desc">{{plan3_desc}}</p>
+            <div class="lines">
+              <div class="line"><div class="l">{{line_create}}<small>{{line_create_sub2}}</small></div><div class="amt">{{p3_price}}</div></div>
+              <div class="line"><div class="l">{{line_host}}<small>{{line_host_sub}}</small></div><div class="amt">{{p3_month}}<small>{{per_month}}</small></div></div>
+            </div>
+            <div class="total"><span>{{first_year}}</span><b>{{p3_total}}</b></div>
+            <div class="pay"><b>{{pay_or}}</b>{{p3_pay0}}<br>{{p3_payyear}}</div>
+            <ul>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p3_f1}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p3_f2}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p3_f3}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p3_f4}}</li>
+              <li><svg viewBox="0 0 24 24"><path d="m5 12 5 5L20 7"/></svg>{{p3_f5}}</li>
+            </ul>
+            <a href="#contact" class="btn btn-dark" data-track="cta_plan_commerce">{{p3_cta}}</a>
           </div>
         </div>
         <p class="pricing-note">{{tf_note}}</p>
